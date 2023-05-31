@@ -1,0 +1,41 @@
+To develop and deploy an AR app using Vuforia Engine that augments a scene in the real world when a plane is detected, follow these steps:
+
+Step 1: Set up Vuforia Developer Account and License Key
+1. Go to the Vuforia Developer Portal at https://developer.vuforia.com/.
+2. Sign up for a free developer account or log in if you already have an account.
+3. Create a new license key for your app in the License Manager section of the portal. Make sure to select the "Device" type for the license.
+4. Copy the generated license key. You will need it later in Unity.
+
+Step 2: Set up Unity and Vuforia
+1. Download and install Unity if you haven't already (make sure to select the correct version compatible with Vuforia).
+2. Open Unity and create a new 3D project.
+3. Go to "Window" > "Package Manager" and import the "Vuforia Engine AR" package into your project.
+4. After importing, go to "Edit" > "Project Settings" > "Player" and set the "Graphics API" to "OpenGL ES 3.0" or "OpenGLES3".
+5. Go to "Edit" > "Project Settings" > "Player" > "XR Plug-in Management" and enable "Vuforia Augmented Reality".
+
+Step 3: Configure AR Camera and Plane Detection
+1. In Unity, go to "GameObject" > "Vuforia Engine" > "AR Camera" to add the AR Camera to your scene.
+2. Select the AR Camera in the hierarchy and go to the Inspector window.
+3. In the Inspector window, find the "Vuforia Behaviour" component and click on the "Open Vuforia Configuration" button.
+4. In the Vuforia Configuration window, enter the license key you obtained earlier from the Vuforia Developer Portal.
+5. In the Configuration window, enable "Device Tracker" and "Smart Terrain".
+6. Click on the "ARCamera" game object again and, in the Inspector window, find the "Plane Finder" component.
+7. Enable plane detection by checking the "Plane Detection" checkbox and selecting the desired options like "Horizontal" or "Vertical" planes.
+8. Adjust other settings as per your requirements.
+
+Step 4: Add Augmented Content to Plane
+1. In Unity, create or import the 3D models, textures, or other content you want to augment on the detected plane.
+2. Arrange and position the content in your scene so that it aligns with the detected plane.
+3. Make sure the content is childed to the AR Camera or placed within the scene hierarchy to maintain the relative position and rotation when the plane is detected.
+
+Step 5: Build and Deploy the AR App
+1. Connect your mobile device to your computer.
+2. In Unity, go to "File" > "Build Settings".
+3. Select the target platform (e.g., Android or iOS) and click on "Switch Platform".
+4. Click on "Player Settings" and configure the settings for your target platform.
+5. Build the app by clicking on "Build and Run" or "Build" to generate an APK or IPA file.
+6. Install and run the app on your mobile device.
+
+When you run the app and point the camera at a surface, Vuforia will detect planes in the real world, and the augmented content you added will be rendered on top of the detected plane. Make sure there is enough light and visible surfaces for accurate plane detection.
+
+Note: The above steps provide a general outline of the process. It's recommended to refer to the Vuforia documentation and Unity tutorials for detailed instructions and troubleshooting specific to your development environment and target platform.

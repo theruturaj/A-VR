@@ -1,0 +1,87 @@
+To create a scene in Unity that includes a cube, plane, and sphere, and change the color and material/texture of the objects dynamically on button click using a C# program in Visual Studio, you can follow these steps:
+
+Step 1: Setting up the Scene
+1. Open Unity and create a new 3D project.
+2. In the Hierarchy window, right-click and select "3D Object" > "Cube" to create a cube.
+3. Similarly, create a sphere by right-clicking and selecting "3D Object" > "Sphere".
+4. To create a plane, go to "GameObject" > "3D Object" > "Plane".
+
+Step 2: Creating Materials and Textures
+1. In the Unity Project window, right-click and select "Create" > "Material". Name it something like "CubeMaterial".
+2. Double-click the "CubeMaterial" to open the Material Inspector window.
+3. Adjust the material properties such as color, glossiness, and emission as desired.
+4. Repeat the same process to create materials for the sphere and plane, naming them accordingly.
+
+Step 3: Applying Materials to Objects
+1. Select the cube in the Hierarchy window.
+2. In the Inspector window, click on the small circle next to "Material" under the Mesh Renderer component.
+3. Select the "CubeMaterial" you created from the available materials.
+4. Repeat the same process for the sphere and plane, applying their respective materials.
+
+Step 4: Writing C# Program in Visual Studio
+1. Open Visual Studio and create a new C# script. Name it something like "ChangeColorAndMaterial".
+2. Double-click the script to open it in the code editor.
+3. Inside the script, add the following code:
+
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ChangeColorAndMaterial : MonoBehaviour
+{
+    public GameObject cube;
+    public GameObject sphere;
+    public GameObject plane;
+    public Material[] materials;
+    public Button changeColorButton;
+    public Button changeMaterialButton;
+
+    private Renderer cubeRenderer;
+    private Renderer sphereRenderer;
+    private Renderer planeRenderer;
+    private int currentMaterialIndex = 0;
+
+    void Start()
+    {
+        cubeRenderer = cube.GetComponent<Renderer>();
+        sphereRenderer = sphere.GetComponent<Renderer>();
+        planeRenderer = plane.GetComponent<Renderer>();
+
+        changeColorButton.onClick.AddListener(ChangeColor);
+        changeMaterialButton.onClick.AddListener(ChangeMaterial);
+    }
+
+    void ChangeColor()
+    {
+        Color newColor = new Color(Random.value, Random.value, Random.value);
+        cubeRenderer.material.color = newColor;
+        sphereRenderer.material.color = newColor;
+        planeRenderer.material.color = newColor;
+    }
+
+    void ChangeMaterial()
+    {
+        currentMaterialIndex = (currentMaterialIndex + 1) % materials.Length;
+        cubeRenderer.material = materials[currentMaterialIndex];
+        sphereRenderer.material = materials[currentMaterialIndex];
+        planeRenderer.material = materials[currentMaterialIndex];
+    }
+}
+```
+
+4. Save the script and go back to the Unity editor.
+5. Attach the "ChangeColorAndMaterial" script to any GameObject in the scene.
+6. In the Inspector window for the attached script, drag and drop the cube, sphere, and plane GameObjects into their respective slots.
+7. Create two UI buttons in your scene and assign them to the "changeColorButton" and "changeMaterialButton" fields in the script.
+8. Assign the desired materials to the "materials" array in the script.
+
+Step 5: Play the Scene
+1. Save your scene by going to "File" > "Save Scene" and choose a name for your scene file.
+2. Click the Play button at the top of the Unity editor to run the scene.
+3
+
+. Click on the buttons you created to dynamically change the color and material/texture of the cube, sphere, and plane objects.
+
+Now, when you play the scene, you can click on the designated buttons to change the color and material/texture of the cube, sphere, and plane objects dynamically. The color will be randomly generated, and the material/texture will cycle through the assigned materials in the array.
+
+Feel free to customize the script further to add more functionality or to adjust the specific behavior according to your requirements.

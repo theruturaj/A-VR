@@ -1,0 +1,60 @@
+To create a sunset scene in Unity that changes into a night scene on a mouse click, you'll need to set up the scene with appropriate lighting and materials. Here's a step-by-step guide to achieving this effect:
+
+Step 1: Setting up the Scene
+1. Open Unity and create a new 3D project.
+2. In the Hierarchy window, right-click and select "3D Object" > "Terrain" to create a terrain.
+3. Select the terrain in the Hierarchy window and go to the Inspector window.
+4. Under the Terrain component, adjust the size and height as desired to create the landscape for your scene.
+5. Add other objects like trees, buildings, and any other elements you want in your scene.
+
+Step 2: Setting up the Skybox
+1. Go to "Window" > "Rendering" > "Lighting Settings" to open the Lighting window.
+2. In the Lighting window, go to the Skybox section.
+3. Click on the small circle next to "Skybox Material" to open the material selection window.
+4. Select a sunset or dusk skybox material from the available options or import your own skybox material. This will give the initial appearance of a sunset scene.
+
+Step 3: Adding Lighting
+1. Select the Directional Light in the Hierarchy window.
+2. In the Inspector window, adjust the rotation and intensity of the light to simulate the position of the sun during sunset.
+3. Set the color of the light to a warm, orange or red hue to match the sunset ambiance.
+
+Step 4: Creating the Night Scene
+1. Create a new empty GameObject by right-clicking in the Hierarchy window and selecting "Create Empty". Rename it to "NightScene".
+2. Inside the "NightScene" GameObject, create a new directional light by going to "GameObject" > "Light" > "Directional Light".
+3. Adjust the rotation and intensity of the new light to simulate the position of the moon or artificial light during the night.
+4. Set the color of the light to a cooler, bluish tone to create a night atmosphere.
+
+Step 5: Scripting the Mouse Click Event
+1. Create a new C# script by right-clicking in the Project window and selecting "Create" > "C# Script". Name it something like "DayNightSwitch".
+2. Double-click the script to open it in your preferred code editor.
+3. Inside the script, add the following code:
+
+```csharp
+using UnityEngine;
+
+public class DayNightSwitch : MonoBehaviour
+{
+    public GameObject dayScene;
+    public GameObject nightScene;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            dayScene.SetActive(!dayScene.activeSelf);
+            nightScene.SetActive(!nightScene.activeSelf);
+        }
+    }
+}
+```
+
+4. Save the script and go back to the Unity editor.
+5. Attach the "DayNightSwitch" script to any GameObject in the scene.
+6. In the Inspector window for the attached script, drag and drop the "DayScene" GameObject and "NightScene" GameObject into their respective slots.
+
+Step 6: Play the Scene
+1. Save your scene by going to "File" > "Save Scene" and choose a name for your scene file.
+2. Click the Play button at the top of the Unity editor to run the scene.
+3. Interact with the scene by clicking the mouse button to switch between the sunset and night scenes.
+
+Now, when you click the mouse button, the scene will transition from the sunset scene to the night scene. You can further enhance the effect by adding stars, adjusting the intensity of the lights, or adding other elements to create a more immersive night scene.

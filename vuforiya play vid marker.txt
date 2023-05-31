@@ -1,0 +1,54 @@
+To develop and deploy a marker-based AR app that plays a video when a marker is tracked using Vuforia Engine, you can follow these steps:
+
+Step 1: Set up Vuforia Developer Account and License Key
+1. Go to the Vuforia Developer Portal at https://developer.vuforia.com/.
+2. Sign up for a free developer account or log in if you already have an account.
+3. Create a new license key for your app in the License Manager section of the portal. Make sure to select the "Device" type for the license.
+4. Copy the generated license key. You will need it later in Unity.
+
+Step 2: Set up Unity and Vuforia
+1. Download and install Unity if you haven't already (make sure to select the correct version compatible with Vuforia).
+2. Open Unity and create a new 3D project.
+3. Go to "Window" > "Package Manager" and import the "Vuforia Engine AR" package into your project.
+4. After importing, go to "Edit" > "Project Settings" > "Player" and set the "Graphics API" to "OpenGL ES 3.0" or "OpenGLES3".
+5. Go to "Edit" > "Project Settings" > "Player" > "XR Plug-in Management" and enable "Vuforia Augmented Reality".
+
+Step 3: Import and Configure Marker
+1. In the Vuforia Developer Portal, go to "Target Manager" and click "Add Database" to create a new database.
+2. Upload your marker image to the database.
+3. After uploading, click on the marker and go to the "Target Details" page.
+4. Set the width of the marker (in real-world units).
+5. Download the database (Unity package) by clicking on "Download Database (All)".
+
+Step 4: Import Database and Configure AR Camera
+1. In Unity, import the downloaded database (Unity package) by going to "Assets" > "Import Package" > "Custom Package".
+2. Select the downloaded Unity package and import all the assets.
+3. In the Project window, find and select the ARCamera prefab located in the "Vuforia" folder.
+4. Drag and drop the ARCamera prefab into your scene hierarchy.
+
+Step 5: Add Video Playback to Marker
+1. In Unity, create a new empty GameObject to serve as a video playback target.
+2. Select the GameObject, go to "Add Component", and search for "VideoPlayer". Add the VideoPlayer component.
+3. Import your video file into the Unity project by dragging and dropping it into the Assets folder.
+4. Assign the video clip to the VideoPlayer component.
+5. Adjust video player settings such as play on awake, loop, and audio output as desired.
+
+Step 6: Configure Vuforia License Key and Marker
+1. In Unity, go to "Window" > "Vuforia Configuration" to open the Vuforia Configuration window.
+2. Enter the Vuforia license key you obtained earlier from the Vuforia Developer Portal.
+3. In the Vuforia Configuration window, click on the "Add License" button and select your database from the list.
+4. Enable the checkbox for your database to activate it.
+
+Step 7: Build and Deploy the AR App
+1. Connect your mobile device to your computer.
+2. In Unity, go to "File" > "Build Settings".
+3. Select the target platform (e.g., Android or iOS) and click on "Switch Platform".
+4. Click on "Player Settings" and configure the settings for your target platform.
+5. Build the app by clicking on "Build and Run" or "Build" to generate an APK or IPA file.
+6. Install and run the app on your
+
+ mobile device.
+
+When you run the app and point the camera at the marker, the video should play on top of the marker once it is recognized by Vuforia. Make sure the marker is well-lit and within the camera's view for accurate tracking.
+
+Note: The above steps provide a general outline of the process. It's recommended to refer to the Vuforia documentation and Unity tutorials for detailed instructions and troubleshooting specific to your development environment and target platform.
